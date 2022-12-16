@@ -12,7 +12,7 @@ public class DependentIntegrationTests : IntegrationTest
 {
     [Fact]
     //task: make test pass
-    public async Task WhenAskedForAllEmployees_ShouldReturnAllDependents()
+    public async Task WhenAskedForAllDependents_ShouldReturnAllDependents()
     {
         var response = await HttpClient.GetAsync("/api/v1/dependents");
         var dependents = new List<GetDependentDto>
@@ -55,7 +55,7 @@ public class DependentIntegrationTests : IntegrationTest
 
     [Fact]
     //task: make test pass
-    public async Task WhenAskedForAnEmployee_ShouldReturnCorrectEmployee()
+    public async Task WhenAskedForADependent_ShouldReturnCorrectDependent()
     {
         var response = await HttpClient.GetAsync("/api/v1/dependents/1");
         var dependent = new GetDependentDto
