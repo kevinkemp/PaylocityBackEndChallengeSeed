@@ -68,5 +68,13 @@ public class DependentIntegrationTests : IntegrationTest
         };
         await response.ShouldReturn(HttpStatusCode.OK, dependent);
     }
+
+    [Fact]
+    //task: make test pass
+    public async Task WhenAskedForANonexistentDependent_ShouldReturn404()
+    {
+        var response = await HttpClient.GetAsync($"/api/v1/dependents/{int.MinValue}");
+        await response.ShouldReturn(HttpStatusCode.NotFound);
+    }
 }
 
